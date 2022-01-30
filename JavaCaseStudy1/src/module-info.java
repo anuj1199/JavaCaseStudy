@@ -1,0 +1,2 @@
+module JavaCaseStudy1 {
+}
