@@ -136,8 +136,9 @@ public class Main {
 		System.out.println("Press 1 for User Registeration ");
 		System.out.println("Press 2 for User Sign In");
 		System.out.println("Press 3 for Admin Sign In");
+		//System.out.println("Press 0 to exit");
 		int choice1 = sc.nextInt();
-		
+		do {
 			switch(choice1) {
 			case 1: 
 					System.out.println("------------------------------------------------");
@@ -161,156 +162,6 @@ public class Main {
 					catch(Exception e) {
 						e.printStackTrace();
 					}
-					System.out.println("------------------------------------------------");
-					System.out.println("         User Sign In");
-					System.out.println("------------------------------------------------");
-					System.out.println("Enter Email: ");
-					String useremail1=sc.nextLine();
-					System.out.println();
-					System.out.println("Enter Password: ");
-					String userpassword1=sc.nextLine();
-					System.out.println();
-					try {
-						if(userpassword1.equals(m.AuthenticateUser(useremail1))) {
-							m.getUser(useremail1);
-							System.out.println("Press 1 for Movies Zone");
-							System.out.println("Press 2 for Series Zone");
-							System.out.println("Press 3 for Movies Watchlist Zone");
-							System.out.println("Press 4 for Series Watchlist Zone");
-							int choice2=sc.nextInt();
-							
-								switch(choice2) {
-								case 1:
-									try {
-										System.out.println("------------------------------------------------");
-										System.out.println("		Welcome to Movies Zone");
-										System.out.println("------------------------------------------------");
-										System.out.println("Press 1 to display all the movies");
-										int choice3 = sc.nextInt();
-											switch(choice3) {
-											case 1:
-												movie mv=new movie();
-												mv.connect();
-												mv.displaymovie();
-												break;
-											default:
-												System.out.println("Incorrect choice....");
-											}
-									}
-									catch(Exception e) {
-										e.printStackTrace();
-									}
-									break;
-									
-								case 2:
-									
-									try {
-										System.out.println("------------------------------------------------");
-										System.out.println("		Welcome to Series Zone");
-										System.out.println("------------------------------------------------");
-										System.out.println("Press 1 to display all the series");
-										System.out.println("Press 2 to display the series in Watch List");
-										System.out.println("Press 3 to insert the series in Watch List");
-										System.out.println("Press 4 to delete the series in Watch List");
-										int choice4 = sc.nextInt();
-											switch(choice4) {
-											case 1:
-												series sr=new series();
-												sr.connect();
-												sr.displayseries();
-												break;
-												
-											default:
-												System.out.println("Incorrect choice....");
-												}
-									}
-									catch(Exception e) {
-										e.printStackTrace();
-									}
-									break;
-									
-								case 3:
-									try {
-										System.out.println("------------------------------------------------");
-										System.out.println("		Welcome to Movies Watch List Zone");
-										System.out.println("------------------------------------------------");
-										System.out.println("Press 1 to display the movies in Watch List");
-										System.out.println("Press 2 to insert the movies in Watch List");
-										System.out.println("Press 3 to delete the movies in Watch List");
-										int choice4 = sc.nextInt();
-										watchListMovie wlm=new watchListMovie();
-										
-											switch(choice4) {
-											case 1:
-												wlm.connect();
-												wlm.displaymovie();
-												break;
-											case 2:
-												wlm.connect();
-												int id=sc.nextInt();
-												wlm.insertmovie(id);				
-												break;
-											case 3:	
-												wlm.connect();
-												int movieid=sc.nextInt();
-												sc.nextLine();
-												String moviename=sc.nextLine();
-												wlm.deletemovie(movieid,moviename);
-												break;
-											default:
-												System.out.println("Incorrect choice....");
-												}
-									}
-									catch(Exception e) {
-										e.printStackTrace();
-									}
-									break;
-								
-								case 4:
-									try {
-										System.out.println("------------------------------------------------");
-										System.out.println("		Welcome to Series Watch List Zone");
-										System.out.println("------------------------------------------------");
-										System.out.println("Press 1 to display the series in Watch List");
-										System.out.println("Press 2 to insert the series in Watch List");
-										System.out.println("Press 3 to delete the series in Watch List");
-										int choice4 = sc.nextInt();
-										watchListSerie wls=new watchListSerie();
-											switch(choice4) {
-											case 1:
-												wls.connect();
-												wls.displayserie();
-												break;
-											case 2:
-												wls.connect();
-												int id=sc.nextInt();
-												wls.insertserie(id);				
-												break;
-											case 3:	
-												wls.connect();
-												int serieid=sc.nextInt();
-												sc.nextLine();
-												String seriename=sc.nextLine();
-												wls.deleteserie(serieid,seriename);
-												break;	
-											default:
-												System.out.println("Incorrect choice....");
-												}
-									}
-									catch(Exception e) {
-										e.printStackTrace();
-									}
-									break;	
-								default:
-									System.out.println("Incorrect choice!");
-								}
-								
-							
-						}
-					}
-					catch(Exception e) {
-						e.printStackTrace();
-					}
 					break;
 			case 2:		
 					System.out.println("------------------------------------------------");
@@ -330,8 +181,9 @@ public class Main {
 							System.out.println("Press 2 for Series Zone");
 							System.out.println("Press 3 for Movies Watchlist Zone");
 							System.out.println("Press 4 for Series Watchlist Zone");
+							//System.out.println("Press 0 to get back to previous screen");
 							int choice2=sc.nextInt();
-							
+							do {
 								switch(choice2) {
 								case 1:
 									try {
@@ -339,7 +191,9 @@ public class Main {
 										System.out.println("		Welcome to Movies Zone");
 										System.out.println("------------------------------------------------");
 										System.out.println("Press 1 to display all the movies");
+										//System.out.println("Press 0 to get back to previous screen");
 										int choice3 = sc.nextInt();
+										do {
 											switch(choice3) {
 											case 1:
 												movie mv=new movie();
@@ -348,7 +202,16 @@ public class Main {
 												break;
 											default:
 												System.out.println("Incorrect choice....");
+												break;
 											}
+											System.out.println("------------------------------------------------");
+											System.out.println("		Welcome to Movies Zone");
+											System.out.println("------------------------------------------------");
+											System.out.println("Press 1 to display all the movies");
+											System.out.println("Press 0 to get back to previous screen");
+											int choice4 = sc.nextInt();
+											choice3=choice4;
+										}while(choice3!=0);	
 									}
 									catch(Exception e) {
 										e.printStackTrace();
@@ -361,8 +224,10 @@ public class Main {
 										System.out.println("		Welcome to Series Zone");
 										System.out.println("------------------------------------------------");
 										System.out.println("Press 1 to display all the series");
-										int choice4 = sc.nextInt();
-											switch(choice4) {
+										//System.out.println("Press 0 to get back to previous screen");
+										int choice3 = sc.nextInt();
+										do {
+											switch(choice3) {
 											case 1:
 												series sr=new series();
 												sr.connect();
@@ -371,7 +236,16 @@ public class Main {
 												
 											default:
 												System.out.println("Incorrect choice....");
+												break;
 												}
+											System.out.println("------------------------------------------------");
+											System.out.println("		Welcome to Series Zone");
+											System.out.println("------------------------------------------------");
+											System.out.println("Press 1 to display all the series");
+											System.out.println("Press 0 to get back to previous screen");
+											int choice4 = sc.nextInt();
+											choice3=choice4;
+										}while(choice3!=0);
 									}
 									catch(Exception e) {
 										e.printStackTrace();
@@ -386,10 +260,11 @@ public class Main {
 										System.out.println("Press 1 to display the movies in Watch List");
 										System.out.println("Press 2 to insert the movies in Watch List");
 										System.out.println("Press 3 to delete the movies in Watch List");
-										int choice4 = sc.nextInt();
+										//System.out.println("Press 0 to get back to previous screen");
+										int choice3 = sc.nextInt();
 										watchListMovie wlm=new watchListMovie();
-										
-											switch(choice4) {
+										do {
+											switch(choice3) {
 											case 1:
 												wlm.connect();
 												wlm.displaymovie();
@@ -408,7 +283,18 @@ public class Main {
 												break;
 											default:
 												System.out.println("Incorrect choice....");
+												break;
 												}
+											System.out.println("------------------------------------------------");
+											System.out.println("		Welcome to Movies Watch List Zone");
+											System.out.println("------------------------------------------------");
+											System.out.println("Press 1 to display the movies in Watch List");
+											System.out.println("Press 2 to insert the movies in Watch List");
+											System.out.println("Press 3 to delete the movies in Watch List");
+											System.out.println("Press 0 to get back to previous screen");
+											int choice4 = sc.nextInt();
+											choice3=choice4;
+										}while(choice3!=0);	
 									}
 									catch(Exception e) {
 										e.printStackTrace();
@@ -423,9 +309,11 @@ public class Main {
 										System.out.println("Press 1 to display the series in Watch List");
 										System.out.println("Press 2 to insert the series in Watch List");
 										System.out.println("Press 3 to delete the series in Watch List");
-										int choice4 = sc.nextInt();
+										//System.out.println("Press 0 to get back to previous screen");
+										int choice3 = sc.nextInt();
 										watchListSerie wls=new watchListSerie();
-											switch(choice4) {
+										do {
+											switch(choice3) {
 											case 1:
 												wls.connect();
 												wls.displayserie();
@@ -444,7 +332,18 @@ public class Main {
 												break;	
 											default:
 												System.out.println("Incorrect choice....");
+												break;
 												}
+											System.out.println("------------------------------------------------");
+											System.out.println("		Welcome to Series Watch List Zone");
+											System.out.println("------------------------------------------------");
+											System.out.println("Press 1 to display the series in Watch List");
+											System.out.println("Press 2 to insert the series in Watch List");
+											System.out.println("Press 3 to delete the series in Watch List");
+											System.out.println("Press 0 to get back to previous screen");
+											int choice4 = sc.nextInt();
+											choice3=choice4;
+										}while(choice3!=0);
 									}
 									catch(Exception e) {
 										e.printStackTrace();
@@ -453,8 +352,18 @@ public class Main {
 									
 								default:
 									System.out.println("Incorrect choice!");
+									break;
 								}
-						}
+								System.out.println("Press 1 for Movies Zone");
+								System.out.println("Press 2 for Series Zone");
+								System.out.println("Press 3 for Movies Watchlist Zone");
+								System.out.println("Press 4 for Series Watchlist Zone");
+								System.out.println("Press 0 to get back to previous screen");
+								int choice5=sc.nextInt();	
+								choice2=choice5;
+							}while(choice2!=0);
+							}
+						
 					}
 					catch(Exception e) {
 						e.printStackTrace();
@@ -462,26 +371,24 @@ public class Main {
 					break;
 					
 			case 3:
-				
+				System.out.println("------------------------------------------------");
+				System.out.println("         Admin Sign In");
+				System.out.println("------------------------------------------------");
+				System.out.println("Enter Email: ");
+				sc.nextLine();
+				String ademail=sc.nextLine();
+				System.out.println();
+				System.out.println("Enter Password: ");
+				String adpassword=sc.nextLine();
+				System.out.println();
 				try {
-					System.out.println("------------------------------------------------");
-					System.out.println("         Admin Sign In");
-					System.out.println("------------------------------------------------");
-					System.out.println("Enter Email: ");
-					sc.nextLine();
-					String ademail=sc.nextLine();
-					System.out.println();
-					System.out.println("Enter Password: ");
-					String adpassword=sc.nextLine();
-					System.out.println();
 					if(adpassword.equals(m.AuthenticateAdmin(ademail))) {
 						m.getAdmin(ademail);
 						System.out.println("Press 1 for Movies Zone");
 						System.out.println("Press 2 for Series Zone");
-						System.out.println("Press 3 for Watchlist Zone");
-						System.out.println("Press 0 to rollback to previous screen");
+						//System.out.println("Press 0 to get back to previous screen");
 						int choice2=sc.nextInt();
-						
+						do {
 							switch(choice2) {
 							case 1:
 								System.out.println("------------------------------------------------");
@@ -491,15 +398,15 @@ public class Main {
 								System.out.println("Press 2 to insert the movies");
 								System.out.println("Press 3 to update the movies");
 								System.out.println("Press 4 to delete movies");
-								System.out.println("Press 0 to rollback to previous screen");
+								//System.out.println("Press 0 to get back to previous screen");
 								int choice3 = sc.nextInt();
 								movie mv=new movie();
 								try {
+									do {
 										switch(choice3) {
 										case 1:
 											mv.connect();
-											mv.displaymovie();
-										
+											mv.displaymovie();				
 											break;
 										case 2:
 											mv.connect();
@@ -509,33 +416,41 @@ public class Main {
 											String genre=sc.nextLine();
 											String platform=sc.nextLine();
 											String productionHouse=sc.nextLine();
-											mv.insertmovie(id, name, genre, platform, productionHouse);
-											
+											mv.insertmovie(id, name, genre, platform, productionHouse);						
 											break;
 										case 3:
 											mv.connect();
 											int mid=sc.nextInt();
 											sc.nextLine();
 											String mname=sc.nextLine();
-											mv.updatemovie(mname, mid);
-											
+											mv.updatemovie(mname, mid);											
 											break;
 										case 4:
 											mv.connect();
 											int movieid=sc.nextInt();
 											sc.nextLine();
 											String moviename=sc.nextLine();
-											mv.deletemovie(movieid,moviename);
-											
+											mv.deletemovie(movieid,moviename);	
 											break;	
 										default:
 											System.out.println("Incorrect choice....");
+											break;
 										}
+										System.out.println("------------------------------------------------");
+										System.out.println("		Welcome to Movies Zone");
+										System.out.println("------------------------------------------------");
+										System.out.println("Press 1 to display all the movies");
+										System.out.println("Press 2 to insert the movies");
+										System.out.println("Press 3 to update the movies");
+										System.out.println("Press 4 to delete movies");
+										System.out.println("Press 0 to get back to previous screen");
+										int choice4 = sc.nextInt();	
+										choice3=choice4;
+									}while(choice3!=0);
 								}
 								catch(Exception e) {
 									e.printStackTrace();
 								}
-								
 								break;
 							case 2:
 								
@@ -547,14 +462,14 @@ public class Main {
 									System.out.println("Press 2 to insert the series");
 									System.out.println("Press 3 to update the series");
 									System.out.println("Press 4 to delete series");
-									System.out.println("Press 0 to rollback to previous screen");
+									//System.out.println("Press 0 to get back to previous screen");
 									int choice4 = sc.nextInt();
 									series sr=new series();
+									do {
 										switch(choice4) {
 										case 1:
 											sr.connect();
-											sr.displayseries();
-											
+											sr.displayseries();											
 											break;
 										case 2:	
 											sr.connect();
@@ -566,39 +481,53 @@ public class Main {
 											String productionHouse=sc.nextLine();
 											int episodes=sc.nextInt();
 											int seasons=sc.nextInt();
-											sr.insertseries(id, name, genre, platform, productionHouse,episodes,seasons);
-											
+											sr.insertseries(id, name, genre, platform, productionHouse,episodes,seasons);											
 											break;
 										case 3:
 											int sid=sc.nextInt();
 											sc.nextLine();
 											String sname=sc.nextLine();
-											sr.updateseries(sname, sid);
-											
+											sr.updateseries(sname, sid);											
 											break;
 										case 4:
 											sr.connect();
 											int serieid=sc.nextInt();
 											sc.nextLine();
 											String seriename=sc.nextLine();
-											sr.deleteseries(serieid,seriename);
-											
+											sr.deleteseries(serieid,seriename);											
 											break;
 										default:
 											System.out.println("Incorrect choice....");
 											}
+										System.out.println("------------------------------------------------");
+										System.out.println("		Welcome to Series Zone");
+										System.out.println("------------------------------------------------");
+										System.out.println("Press 1 to display all the series");
+										System.out.println("Press 2 to insert the series");
+										System.out.println("Press 3 to update the series");
+										System.out.println("Press 4 to delete series");
+										System.out.println("Press 0 to get back to previous screen");
+										int choice5 = sc.nextInt();
+										choice4=choice5;
+									}while(choice4!=0);	
 								}
 								catch(Exception e) {
 									e.printStackTrace();
-								}
-								
+								}			
 								break;
 							default:
 								System.out.println("Incorrect choice!");
+								break;
 							}
-							
-						
+							System.out.println("Press 1 for Movies Zone");
+							System.out.println("Press 2 for Series Zone");
+							System.out.println("Press 3 for Watchlist Zone");
+							System.out.println("Press 0 to get back to previous screen");
+							int choice5=sc.nextInt();
+							choice2=choice5;
+						}while(choice2!=0);	
 					}
+					
 				}
 				catch(Exception e) {
 					e.printStackTrace();
@@ -607,6 +536,22 @@ public class Main {
 				break;
 				default:
 					System.out.println("Incorrect choice....");
+					break;
 			}
+			
+			System.out.println("------------------------------------------------");
+			System.out.println("		Welcome to Entertainment Zone");
+			System.out.println("------------------------------------------------");
+			
+			System.out.println("Press 1 for User Registeration ");
+			System.out.println("Press 2 for User Sign In");
+			System.out.println("Press 3 for Admin Sign In");
+			System.out.println("Press 0 to exit");
+			int x=sc.nextInt();
+			choice1=x;
+			}while(choice1!=0);
+		System.out.println("------------------------------------------------");
+		System.out.println("		THANK YOU");
+		System.out.println("------------------------------------------------");
 	}
 }
