@@ -27,7 +27,7 @@ public class series {
 		} 
 		catch (SQLException e) 
 		{
-			e.printStackTrace();
+			System.out.println("Wrong Connection....");
 		}
 	}
 	public void displayseries() throws SQLException{
@@ -44,7 +44,7 @@ public class series {
 		}
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Exception Caught....");
 			
 		}
 	}
@@ -67,7 +67,7 @@ public class series {
 		
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Wrong Input....");
 			
 		}		
 	}
@@ -83,25 +83,24 @@ public class series {
 		}
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Wrong Input....");
 			
 		}		
 	}
-	public void deleteseries(int id, String name) throws SQLException{
+	public void deleteseries(int id) throws SQLException{
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/entertainment?characterEncoding=latin1", "root", "password");
 		    Statement stmt =con.createStatement();
 		    
-		    PreparedStatement deleteEmp = con.prepareStatement("delete from series where s_id=? and s_name=?");
+		    PreparedStatement deleteEmp = con.prepareStatement("delete from series where s_id=?");
 		    deleteEmp.setInt(1,id);
-		    deleteEmp.setString(2,name);
 		    int count=deleteEmp.executeUpdate();
 		    System.out.println(count+"row/s affected");
 		}
 		
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Wrong Input....");
 			
 		}		
 		

@@ -25,7 +25,7 @@ public class movie {
 		} 
 		catch (SQLException e) 
 		{
-			e.printStackTrace();
+			System.out.println("Wrong Connection....");
 		}
 	}
 	public void displaymovie() throws SQLException{
@@ -42,7 +42,7 @@ public class movie {
 		}
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Exception Caught");
 			
 		}
 	}
@@ -64,7 +64,7 @@ public class movie {
 		
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Wrong Input....");
 			
 		}		
 	}
@@ -80,25 +80,24 @@ public class movie {
 		}
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Wrong Input....");
 			
 		}		
 	}
-	public void deletemovie(int id, String name) throws SQLException{
+	public void deletemovie(int id) throws SQLException{
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/entertainment?characterEncoding=latin1", "root", "password");
 		    Statement stmt =con.createStatement();
 		    
-		    PreparedStatement deleteEmp = con.prepareStatement("delete from movie where m_id=? and m_name=?");
+		    PreparedStatement deleteEmp = con.prepareStatement("delete from movie where m_id=?");
 		    deleteEmp.setInt(1,id);
-		    deleteEmp.setString(2,name);
 		    int count=deleteEmp.executeUpdate();
 		    System.out.println(count+"row/s affected");
 		}
 		
 		catch(Exception e1)
 		{
-			e1.printStackTrace();
+			System.out.println("Wrong Input....");
 			
 		}		
 		
