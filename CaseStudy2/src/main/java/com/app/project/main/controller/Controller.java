@@ -30,6 +30,7 @@ public class Controller {
 		movieServiceImpl.saveMovie(movie);
 		return movie;
 	}
+	
 	@GetMapping(value="displayMovie")
 	public List<Movie> findAllMovie(){
 		return movieServiceImpl.findAllMovies();
@@ -41,6 +42,6 @@ public class Controller {
 	@DeleteMapping("deleteMovie")
 	public String deleteMovie(@RequestParam int id) {
 		movieServiceImpl.deleteMovie(id);
-		return "Student Deleted";
+		return "Movie Deleted";
 	}
 }

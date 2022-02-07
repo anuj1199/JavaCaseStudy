@@ -6,11 +6,11 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 @Entity
-@Table(name="movie", catalog="casestudy")
+@Table(name="movies", catalog="casestudy")
 public class Movie {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int mid;
+	private int id;
 	private String name;
 	private String genre;
 	private String productionHouse;
@@ -19,19 +19,19 @@ public class Movie {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Movie(int mid, String name, String genre, String productionHouse, String platform) {
+	public Movie(int id, String name, String genre, String productionHouse, String platform) {
 		super();
-		this.mid = mid;
+		this.id = id;
 		this.name = name;
 		this.genre = genre;
 		this.productionHouse = productionHouse;
 		this.platform = platform;
 	}
 	public int getId() {	
-		return mid;
+		return id;
 	}
-	public void setId(int mid) {
-		this.mid = mid;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
